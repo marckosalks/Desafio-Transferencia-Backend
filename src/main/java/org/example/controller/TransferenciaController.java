@@ -2,18 +2,21 @@ package org.example.controller;
 
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("v1/transferencia")
+@RequestMapping("v1")
 @RestController
 public class TransferenciaController {
 
-    @GetMapping()
+    @GetMapping("/transferencia")
     @ResponseStatus(HttpStatus.OK)
-    public String ExibirExtrato(){
+    public String ExibirTransferencias(){
         return "Transferencias: Acompanhar...";
+    }
+
+    @PostMapping("/transferencia")
+    @ResponseStatus(HttpStatus.CREATED)
+    public String cadastrarTransferencia(){
+        return "transferencia realizada com sucesso";
     }
 }
