@@ -1,22 +1,34 @@
 package org.example.controller;
 
-
+import org.example.dto.TransferenciaRequest;
+import org.example.service.TransferenciaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("v1")
+import javax.validation.Valid;
+
 @RestController
+@RequestMapping("v1/transferencia")
 public class TransferenciaController {
 
-    @GetMapping("/transferencia")
+    private final TransferenciaService transferenciaService;
+
+    public TransferenciaController(TransferenciaService transferenciaService) {
+        this.transferenciaService = transferenciaService;
+    }
+
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public String ExibirTransferencias(){
+    public String exibirTransferencias() {
         return "Transferencias: Acompanhar...";
     }
 
-    @PostMapping("/transferencia")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String cadastrarTransferencia(){
-        return "transferencia realizada com sucesso";
+    public TransferenciaRequest cadastrarTransferencia(@RequestBody @Valid TransferenciaRequest dadosTransferencia) {
+
+        transferenciaService.cadastrarAgendamento(dadosTransferencia);
+        return dadosTransferencia;
+
     }
 }

@@ -2,6 +2,7 @@ package org.example.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class TransferenciaResponse {
 
@@ -11,6 +12,6 @@ public class TransferenciaResponse {
     BigDecimal valorTransferencia;
     BigDecimal valorTaxa;
     LocalDate dataTransferencia;
-    LocalDate dataAgendamento;
+    LocalDateTime dataAgendamento;
 
 }
