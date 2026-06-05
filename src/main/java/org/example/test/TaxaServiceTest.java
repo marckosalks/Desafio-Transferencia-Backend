@@ -1,4 +1,4 @@
-package org.example.teste;
+package org.example.test;
 
 public class TaxaServiceTest {
 }

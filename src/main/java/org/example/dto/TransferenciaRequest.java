@@ -9,6 +9,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,17 +21,17 @@ public class TransferenciaRequest {
     @NotBlank(message = "Conta é obrigatória")
     @Size(min = 10, max = 10, message = "Conta inválida!")
     @Pattern(regexp = "^\\d{5,12}-[0-9X]$", message = "Conta fora do padrão 00000000-0")
-    String contaOrigem;
+    private String contaOrigem;
 
     @NotBlank(message = "Conta é obrigatória")
     @Size(min = 10, max = 10, message = "Conta inválida!")
     @Pattern(regexp = "^\\d{5,12}-[0-9X]$", message = "Conta fora do padrão 00000000-0")
-    String contaDestino;
+    private String contaDestino;
 
     @NotNull(message = "Valor é obrigatório!")
-    BigDecimal valorTransferencia;
+    private BigDecimal valorTransferencia;
 
     @NotNull(message = "Data de Transferência obrigatória!")
-    LocalDate dataTransferencia;
+    private LocalDate dataTransferencia;
 
 }

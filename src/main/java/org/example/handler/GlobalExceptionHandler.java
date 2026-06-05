@@ -41,11 +41,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<TransferenciaError> handleErrosAleatorios(Exception ex){
+
        TransferenciaError response =  TransferenciaError.builder()
                 .message("Erro inesperado, já estamos resolvendo tente novamente mais tarde")
                 .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
                 .build();
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 }
