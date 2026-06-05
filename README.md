@@ -1,4 +1,4 @@
-## DESAFIO TRANSFERENCIA
+## DESAFIO TRANSFERÊNCIA ⇄🧾
 
 ## Tecnologias
 
@@ -112,3 +112,4 @@ cd desafio-transferencia
 mvn clean install
 
 mvn spring-boot:run
+## Como executar:
