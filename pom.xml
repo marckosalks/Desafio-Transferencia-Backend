@@ -22,7 +22,6 @@
     </properties>
 
     <dependencies>
-
         <!-- API REST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -42,12 +41,12 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- OpenAPI UI -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.8.0</version>
         </dependency>
-
 
         <!-- Validações -->
         <dependency>
@@ -62,13 +61,14 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Testes -->
+        <!-- Spring Boot Test (includes JUnit 5) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
+        <!-- JUnit Jupiter Engine for explicit JUnit 5 support -->
     </dependencies>
 
     <build>
