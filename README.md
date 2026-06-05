@@ -16,6 +16,8 @@
 - Taxas calculadas conforme tabela
 
 
+ Observação: Considerou-se o formato de conta bancária como XXXXXXXX-X (8 dígitos + hífen + dígito verificador), totalizando 10 caracteres, por não haver especificação detalhada no enunciado.
+
  ## Como planejo fazer esse projeto?
 
 ### Entidades
@@ -71,7 +73,7 @@ anterior a data atual;
 
 Todos os erros passam por aqui, e destino no codigo qual exceção vou disparar
 
-### Test
+### Testes
 
 ## Arquitetura
 
@@ -89,5 +91,25 @@ Repository
 
 H2 Database
 
+## Banco de dados H2 (em memoria)
 
+http://localhost:8080/h2-console
+
+-precisa colocar o nome que está no log pra
+acessar o banco
+
+
+## Swagger da api:
+
+http://localhost:8080/swagger-ui/index.html#/
+
+## Como executar:
+
+git clone <repositorio>
+
+cd desafio-transferencia
+
+mvn clean install
+
+mvn spring-boot:run
 ## Como executar:
