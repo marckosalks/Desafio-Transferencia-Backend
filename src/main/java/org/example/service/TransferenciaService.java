@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 @Service
 public class TransferenciaService {
@@ -19,8 +20,7 @@ public class TransferenciaService {
 
     public TransferenciaService(
             TransferenciaRepository repository,
-            TaxaService taxaService
-    ) {
+            TaxaService taxaService) {
         this.repository = repository;
         this.taxaService = taxaService;
     }
@@ -55,7 +55,10 @@ public class TransferenciaService {
         transferencia.setDataTransferencia(dataTransferencia);
         transferencia.setDataAgendamento(hoje);
 
-
         return repository.save(transferencia);
+    }
+
+    public List<Transferencia> listarTransferencias() {
+        return repository.findAll();
     }
 }
