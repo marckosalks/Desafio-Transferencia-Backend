@@ -16,6 +16,8 @@
 - Taxas calculadas conforme tabela
 
 
+ Observação: Considerou-se o formato de conta bancária como XXXXXXXX-X (8 dígitos + hífen + dígito verificador), totalizando 10 caracteres, por não haver especificação detalhada no enunciado.
+
  ## Como planejo fazer esse projeto?
 
 ### Entidades

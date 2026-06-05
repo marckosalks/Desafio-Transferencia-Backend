@@ -20,12 +20,12 @@ import java.time.LocalDateTime;
 public class TransferenciaRequest {
     @NotBlank(message = "Conta é obrigatória")
     @Size(min = 10, max = 10, message = "Conta inválida!")
-    @Pattern(regexp = "^\\d{5,12}-[0-9X]$", message = "Conta fora do padrão 00000000-0")
+    @Pattern(regexp = "^\\d{8}-\\d$", message = "Conta fora do padrão 00000000-0")
     private String contaOrigem;
 
     @NotBlank(message = "Conta é obrigatória")
     @Size(min = 10, max = 10, message = "Conta inválida!")
-    @Pattern(regexp = "^\\d{5,12}-[0-9X]$", message = "Conta fora do padrão 00000000-0")
+    @Pattern(regexp = "^\\d{8}-\\d$", message = "Conta fora do padrão 00000000-0")
     private String contaDestino;
 
     @NotNull(message = "Valor é obrigatório!")
