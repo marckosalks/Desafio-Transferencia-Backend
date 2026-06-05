@@ -11,6 +11,7 @@ public class TransferenciaResponse {
     String contaDestino;
     BigDecimal valorTransferencia;
     BigDecimal valorTaxa;
+    BigDecimal valorTotalTransferencia;
     LocalDate dataTransferencia;
     LocalDateTime dataAgendamento;
 

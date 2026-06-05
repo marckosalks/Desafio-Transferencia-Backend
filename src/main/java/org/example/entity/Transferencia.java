@@ -31,6 +31,9 @@ public class Transferencia {
     @Column(nullable =  false, precision = 15, scale = 2)
     BigDecimal valorTaxa;
 
+    @Column(nullable =  false, precision = 15, scale = 2)
+    BigDecimal valorTotalTransferencia;
+
     @Column(nullable = false)
     LocalDate dataTransferencia;
 
