@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.dto.TransferenciaRequest;
+import org.example.dto.TransferenciaResponse;
 import org.example.entity.Transferencia;
 import org.example.exception.RegraNegocioException;
 import org.example.repository.TransferenciaRepository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TransferenciaService {
@@ -25,7 +27,7 @@ public class TransferenciaService {
         this.taxaService = taxaService;
     }
 
-    public Transferencia cadastrarAgendamento(TransferenciaRequest dados) {
+    public TransferenciaResponse cadastrarAgendamento(TransferenciaRequest dados) {
 
         LocalDate hoje = LocalDate.now();
         LocalDate dataTransferencia = dados.getDataTransferencia();
@@ -55,10 +57,26 @@ public class TransferenciaService {
         transferencia.setDataTransferencia(dataTransferencia);
         transferencia.setDataAgendamento(hoje);
 
-        return repository.save(transferencia);
+        Transferencia saved = repository.save(transferencia);
+        return toResponse(saved);
     }
 
-    public List<Transferencia> listarTransferencias() {
-        return repository.findAll();
+    public List<TransferenciaResponse> listarTransferencias() {
+        return repository.findAll().stream()
+                .map(this::toResponse)
+                .collect(Collectors.toList());
+    }
+
+    private TransferenciaResponse toResponse(Transferencia transferencia) {
+        return TransferenciaResponse.builder()
+                .id(transferencia.getId())
+                .contaOrigem(transferencia.getContaOrigem())
+                .contaDestino(transferencia.getContaDestino())
+                .valorTransferencia(transferencia.getValorTransferencia())
+                .valorTaxa(transferencia.getValorTaxa())
+                .valorTotalTransferencia(transferencia.getValorTotalTransferencia())
+                .dataTransferencia(transferencia.getDataTransferencia())
+                .dataAgendamento(transferencia.getDataAgendamento())
+                .build();
     }
 }

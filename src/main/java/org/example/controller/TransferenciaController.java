@@ -1,7 +1,7 @@
 package org.example.controller;
 
 import org.example.dto.TransferenciaRequest;
-import org.example.entity.Transferencia;
+import org.example.dto.TransferenciaResponse;
 import org.example.service.TransferenciaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +21,12 @@ public class TransferenciaController {
     }
 
     @GetMapping
-    public List<Transferencia> exibirTransferencias() {
+    public List<TransferenciaResponse> exibirTransferencias() {
         return transferenciaService.listarTransferencias();
     }
 
     @PostMapping
-    public ResponseEntity<Transferencia> agendar(@RequestBody @Valid TransferenciaRequest dadosTransferencia) {
+    public ResponseEntity<TransferenciaResponse> agendar(@RequestBody @Valid TransferenciaRequest dadosTransferencia) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(transferenciaService.cadastrarAgendamento(dadosTransferencia));
     }
